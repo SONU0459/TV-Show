@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.scss";
+import  { useState, useEffect } from "react";
+import axios from "axios";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ShowList from "./component/ShowList";
+import Navbar from  "./component/Navbar"
+import ShowSummary from "./component/ShowDetail"
 
 function App() {
+  
+  const [shows, setShows] = useState([]);
+
+  useEffect(() => {
+    axios.get("https://api.tvmaze.com/search/shows?q=all")
+      .then(response => setShows(response.data))
+      .catch(error => console.error(error));
+  }, []);
+
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+
+        <Navbar />
+
+
+        <Routes>
+          <Route path="/show/:id" element={<ShowSummary />} />
+          <Route path="/" element={ <ShowList shows={shows} />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

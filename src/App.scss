@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+
+    box-sizing: border-box;
+}
+// Navbar--------
+
+.navbar-tvshow {
+    background-color: rgb(0, 0, 0);
+    font-size: 24px;
+  }
+  
+  .navbar-tvshow .navbar-brand {
+    font-size: 46px;
+  }
+  
+  .navbar-tvshow .navbar-nav .nav-item {
+    margin-right: 50px;
+  }
+  
+  .navbar-tvshow .navbar-nav .nav-link {
+    font-size: 100px;
+  }
+  
+
+// ----------ShowList
+
+.card {
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+
+    &:hover{
+        transform: scale(1.05);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease-in-out;
+    }
+  }
+
+  .card-text {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+  }
+  
+  .card-text.show-full {
+    display: block;
+    overflow: visible;
+  }
+  
+
+ 
+  
